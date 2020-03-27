@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ApiService from '../../Util/ApiService';
+import Game from '../Game/Game';
 
 class Gamelist extends Component {
     constructor(props) {
@@ -25,17 +26,14 @@ class Gamelist extends Component {
         const { gameList } = this.state;
         //console.log(gameList);
         return (
-            <div className="">
-                This is from gameList
+            <div className="container mb-10">
                 {
-                    gameList.map((value) => {
+                    gameList.map((value, index) => {
                         return (
-                            <p key={value.id}>{value.name}</p>
-                        )
-                        
+                            <Game key={value.id} gameName={value.name} gameImg={value.background_image} gameRating={value.rating} index={index} />
+                        )                        
                     })
                 }
-
             </div>
         );
     }
