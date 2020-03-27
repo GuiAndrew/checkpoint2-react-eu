@@ -27,13 +27,24 @@ class Gamelist extends Component {
         //console.log(gameList);
         return (
             <div className="container mb-10">
-                {
-                    gameList.map((value, index) => {
-                        return (
-                            <Game key={value.id} gameName={value.name} gameImg={value.background_image} gameRating={value.rating} index={index} />
-                        )                        
-                    })
-                }
+                <table className="responsive-table centered highlight">
+                <thead>
+                    <tr>
+                        <th>Game Name</th>
+                        <th>Game Image</th>
+                        <th>Game Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        gameList.map((value, index) => {
+                            return (
+                                <Game key={value.id} gameName={value.name} gameImg={value.background_image} gameRating={value.rating} index={index} />
+                            )                        
+                        })
+                    }
+                    </tbody>
+                </table>
             </div>
         );
     }
